@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Matcha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/bootstrap-grid.min.css')}}" />
+    
+</head>
+<body>
+        <div class="container">
+                <div class="row">
+                        <div class="col-lg-12 col-mg-12 col-sm-12 float-right" id="google_translate_element"></div>
+                </div>
+                <div class="row" id="header">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <a href="{{url_for('index')}}">
+                            <img  src="{{url_for('static', filename='matcha.png')}}" alt="Matcha" width="90%" height="auto">
+                        </a>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 clearfix">
+                        <a class="float-right" href="{{url_for('signupbtn')}}">
+                            <button class="btn btn-default button"><span>Signup</span></button>
+                        </a>
+                        <a href="{{url_for('loginbtn')}}" class="float-right">
+                            <button class="btn btn-default">Login</button>
+                        </a> 
+                    </div>
+                </div>
+        
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    {%- for category, message in get_flashed_messages(with_categories = true) %}
+                        <div class="alert alert-{{category}}">
+                            {{ message }}
+                        </div>
+                    {%- endfor %}
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <form class="form-horizontal" action = "{{ url_for('login') }}" method = "post">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for = "username">Username</label>
+                                <div class="col-sm-12">
+                                    <input aria-required="true" type = "text" class="form-control" id="username" name = "username" placeholder = "Username" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for = "email">Email</label>
+                                <div class="col-sm-12">
+                                    <input aria-required="true" type = "email" class="form-control" id="email" name = "email" placeholder = "Email" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for = "password">Password</label>
+                                <div class="col-sm-12">
+                                    <input aria-required="true" type = "password" minlength="10" class="form-control" id="password" name = "password" placeholder = "Password" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Login</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+</body>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</html>
