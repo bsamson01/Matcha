@@ -27,7 +27,8 @@ figcaption.ratings a:hover
     border-top:1px solid rgba(0,0,0,0.1);
     float: left;
     width: 100%;
-    padding: 0 5px;
+    padding: 0 20px;
+    margin: auto;
 }
 .emphasis 
 {
@@ -50,6 +51,11 @@ span.tags
     font-weight: bold;
     padding: 2px 4px;
 }
+
+.emphasis .dropdown-toggle {
+    width: 30%;
+}
+
 .dropdown-menu 
 {
     background-color: #34495e;    
@@ -58,6 +64,7 @@ span.tags
     width: 250px;
     margin-left: -125px;
     left: 50%;
+    padding: 10px;
 }
 .dropdown-menu .divider 
 {
@@ -101,4 +108,8 @@ span.tags
 header {
     padding: 10px 0;
     margin-bottom: 20px;
+}
+
+nav {
+    padding: 6px 0;
 }

@@ -20,12 +20,12 @@
                     <div class="col-lg-12 col-mg-12 col-sm-12 float-right" id="google_translate_element"></div>
             </section>
             <header class="row" id="header">
-                <section class="col-lg-3 col-md-3 col-sm-3">
+                <section class="col-sm-4">
                     <a href="{{url_for('index')}}">
-                        <img  src="{{url_for('static', filename='matcha.png')}}" alt="Matcha" width="90%" height="auto">
+                        <img  src="{{url_for('static', filename='matcha.png')}}" alt="Matcha" height="50px">
                     </a>
                 </section>
-                <nav class="col-lg-8 col-md-8 col-sm-8 clearfix">
+                <nav class="col-sm-8 clearfix">
                     <a href="{{url_for('logout')}}" class="float-right">
                         <button class="btn btn-default">Logout</button>
                     </a>
@@ -58,6 +58,7 @@
             {% block content %}{% endblock %}
     </main>
 </body>
+    <script src="{{ url_for('static', filename='js/umd/popper.min.js')}}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{url_for('static', filename='js/home.js')}}"></script>
 </html>
