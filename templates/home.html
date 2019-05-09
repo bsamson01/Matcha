@@ -1,66 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Matcha</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/bootstrap.min.css')}}" />
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/bootstrap-grid.min.css')}}" />
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/home.css')}}">
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
+{% extends 'layout.html' %}
+{% block header %}
+  <h1>{% block title %}Matcha{% endblock %}</h1>
+{% endblock %}
 
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-    
-</head>
-<body>
-        <div class="container">
-                <div class="row">
-                        <div class="col-lg-12 col-mg-12 col-sm-12 float-right" id="google_translate_element"></div>
-                </div>
-                <div class="row" id="header">
-                    <div class="col-lg-1"></div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                        <a href="{{url_for('index')}}">
-                            <img  src="{{url_for('static', filename='matcha.png')}}" alt="Matcha" width="90%" height="auto">
-                        </a>
-                    </div>
-                    <div class="col-lg-8 col-md-8 col-sm-8 clearfix">
-                        <a href="{{url_for('logout')}}" class="float-right">
-                            <button class="btn btn-default">Logout</button>
-                        </a>
-                        <a href="{{url_for('updatebtn')}}" class="float-right">
-                            <button class="btn btn-default">Update Profile</button>
-                        </a>
-                        <a href="{{url_for('home')}}" class="float-right">
-                            <button class="btn btn-default">Notifications</button>
-                        </a>
-                        <a href="{{url_for('home')}}" class="float-right">
-                            <button class="btn btn-default">Browse</button>
-                        </a>
-                        <a href="{{url_for('home')}}" class="float-right">
-                            <button class="btn btn-default">Chats</button>
-                        </a>
-                        <a href="{{url_for('pictures')}}" class="float-right">
-                            <button class="btn btn-default">Pictures</button>
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        {%- for category, message in get_flashed_messages(with_categories = true) %}
-                            <div class="alert alert-{{category}}">
-                                {{ message }}
-                            </div>
-                        {%- endfor %}
-                    </div>
-                </div>
+{% block content %}
                 <div class="row" id="info">
                     <div class="col-sm-12 col-md-12 col-lg-12" id="suggested">
-                        <div class='row'>
+                        <!-- <div class='row'>
                         {% for user in usrs%}
-                            <!-- <div class="col-sm-3 col-md-3 col-lg-3" id="{{user.id}}">
+                            <div class="col-sm-3 col-md-3 col-lg-3" id="{{user.id}}">
                                 
                                 {% if user.active == false %}
                                     <div class="alert alert-danger">Offline</div>
@@ -75,11 +23,11 @@
                                 </a>
                             </div> -->
 
-                                {%if user.username != usr%}
+                                {%if user.username%}
                                     <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
                                      <div class="well profile">
                                         <div class="col-sm-12">
-                                            <div class="col-xs-12 col-sm-8">
+                                            <div class="name_info col-xs-12 col-sm-8">
                                                 <h2>{{user.firstname}} {{user.lastname}}</h2>
                                                 <p><strong>About: </strong> Web Designer / UI. </p>
                                                 <p><strong>Hobbies: </strong> Read, out with friends, listen to music, draw and learn new things. </p>
@@ -90,8 +38,8 @@
                                                     <span class="tags">bootstrap3</span>
                                                 </p>
                                             </div>             
-                                            <div class="col-xs-12 col-sm-4 text-center">
-                                                <figure>
+                                            <div class="col-xs-12 col-sm-4 text-center picture_info">
+                                                <figure class="profile_pic">
                                                     {%if user.profile_pic%}
                                                         <img src="{{user.profile_pic}}" alt="" class="img-circle img-responsive">
                                                     {%else%}
@@ -161,12 +109,4 @@
                     </div>
                 </div>
 
-
-                
-                
-
-            </div>
-</body>
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
-    <script type="text/javascript" src="{{url_for('static', filename='js/home.js')}}"></script>
-</html>
+{% endblock %}

@@ -25,10 +25,14 @@ figcaption.ratings a:hover
 .divider 
 {
     border-top:1px solid rgba(0,0,0,0.1);
+    float: left;
+    width: 100%;
+    padding: 0 5px;
 }
 .emphasis 
 {
     border-top: 4px solid transparent;
+    padding: 0;
 }
 .emphasis:hover 
 {
@@ -78,4 +82,23 @@ span.tags
     left: 50%;
     margin-left: -10px;
     z-index: 10;
+}
+
+.name_info {
+    float: left;
+}
+
+.picture_info {
+    float: left;
+    align-content: center;
+}
+
+.picture_info img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+header {
+    padding: 10px 0;
+    margin-bottom: 20px;
 }
