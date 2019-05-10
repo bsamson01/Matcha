@@ -20,7 +20,6 @@ const AUTOPREFIXER_BROWSERS = [
 ];
 
 gulp.task('sass' , function() {
-  gulpLog.log("\nStarting task Sass........");
   return gulp.src('static/scss/**/*.scss')
     .pipe(sass({
       outputStyle: 'nested',
@@ -40,7 +39,6 @@ gulp.task('sass' , function() {
 });
 
 gulp.task('scripts', function(){
-  gulpLog.log("\nStarting task Scripts........");
   return gulp.src('static/js/jquery/**/*.js')
   .pipe(uglify())
   .pipe(rename({
@@ -55,3 +53,5 @@ gulp.task('watch', function(){
   gulp.watch('static/scss/**/*.scss', gulp.series('sass'));
   gulp.watch('static/js/jquery/**/*.js', gulp.series('scripts'));
 });
+
+gulp.task('build', gulp.series('sass', 'scripts'));
